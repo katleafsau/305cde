@@ -1,0 +1,40 @@
+<html>
+<script>
+  function abc(){
+    //alert("hihihi");
+    //alert(document.getElementById("title").innerHTML); //innerHTML means get text in the HTML
+    var user=document.getElementById("username").value; //Get the value of id"username"
+             //document.getElementByName("myuser")[0].value; //Get the value of name"myuser"
+    var pwd=document.getElementById("mypass").value;
+    var cpwd=document.getElementById("conmypass").value;
+    //alert(user);
+    //alert(pwd);
+    document.getElementById("title").innerHTML="Hello!"+user+pwd+cpwd; //change text, '+' for link-up string
+    
+    //check user has a value or not
+    if(user=="" && pwd==""){
+      alert("Please enter your username and password!");
+      return;
+    }
+    
+    if(pwd != cpwd){
+      alert("Confirm Password not matched!");
+      return;
+    }
+    else {
+      alert("Password matched!")
+    }
+  }
+  
+</script>
+
+<body>
+
+  <div id="title">Please login</div>
+   Username <input type="text" id="username" name="myuser" placeholder="username"><br>
+   Password <input type="password" id="mypass" name="mypassword"><br>
+   Confirm Password <input type="password" id="conmypass" name="conmypassword"><br>
+   <button onclick="abc()">Submit</button>
+</body>
+
+</html>
