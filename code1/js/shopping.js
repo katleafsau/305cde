@@ -42,6 +42,7 @@ function calculate() {
 	
 	// Factor in the shipping:
 	total = total + shipping;
+	console.log("total after add shipping fee: " + total);
 
 	// Format the total to two decimal places:
 	total = total.toFixed(2);
