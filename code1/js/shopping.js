@@ -14,6 +14,7 @@ function calculate() {
     var price = document.getElementById('price').value;
     var tax = document.getElementById('tax').value;
     var discount = document.getElementById('discount').value;
+    var shipping = document.getElementById('shipping').value;
 
 	// Add validation here later!
 	
@@ -38,6 +39,9 @@ function calculate() {
 		total = total - discount;
 		console.log("total after discount: " + total);
 	}	
+	
+	// Factor in the shipping:
+	total = total + shipping;
 
 	// Format the total to two decimal places:
 	total = total.toFixed(2);
