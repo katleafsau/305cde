@@ -1,17 +1,28 @@
 <html>
-<script>
-  function abc(){
-    //alert("hihihi");
-    //alert(document.getElementById("title").innerHTML); //innerHTML means get text in the HTML
-    var user=document.getElementById("username").value; //Get the value of id"username"
-             //document.getElementByName("myuser")[0].value; //Get the value of name"myuser"
-    var pwd=document.getElementById("mypass").value;
-    var cpwd=document.getElementById("conmypass").value;
-    //alert(user);
-    //alert(pwd);
-    document.getElementById("title").innerHTML="Hello!"+user+pwd+cpwd; //change text, '+' for link-up string
-    
-    //check user has a value or not
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<head> 
+
+  <script>
+    $(document).ready(function() {
+        var user = $("#username").val();
+        var pwd = $("#mypass").val();
+        var cpwd = $("#conmypass").val();
+      
+        $("#mypic").click(function(){
+              $(this).fadeOut("fast");
+        });
+        
+        var loginornot = localStorage.getItem("mylogin");
+      
+        if (loginornot == "") {
+          alert("Please login!");
+          return;
+        }
+      
+            //check user has a value or not
     if(user=="" && pwd==""){
       alert("Please enter your username and password!");
       return;
@@ -22,19 +33,51 @@
       return;
     }
     else {
-      alert("Password matched!")
+      alert("Password matched!");
     }
-  }
-  
+    });
+    
+ $(document).ready(function() {
+ $("#login").click(function(e){
+			//alert("D");
+			$(function(){
+				//var user = {};
+				//user.act = "login";
+				//user.ac = $("input[name='myuser']").val();
+				//user.pw = $("input[name='mypassword']").val();
+        var username=$("#username").val();
+        var password=$("#pwd").val();
+        var mydata="uname="+username+"&pwd="+password;
+        alert(mydata);
+			//	alert(user.ac);
+				$.ajax({
+					url: "http://305db-idm4smb32469.codeanyapp.com:5001/login",
+					type: "POST",
+					data: mydata,
+					success: function (result) {
+						alert(result);
+       			 console.log(result);
+        		if(result.status == 200){
+            		console.log("hope can see here");
+        			}
+    			},
+    			error: function(result){
+        			console.log(result);
+    				}
+				});
+				return false;
+			});
+		});
+      
+    });
 </script>
+</head>
 
 <body>
-
   <div id="title">Please login</div>
-   Username <input type="text" id="username" name="myuser" placeholder="username"><br>
-   Password <input type="password" id="mypass" name="mypassword"><br>
-   Confirm Password <input type="password" id="conmypass" name="conmypassword"><br>
-   <button onclick="abc()">Submit</button>
+Username <input type="text" id="username" name="username" placeholder="username"><br>
+Password <input type="password" id="pwd" name="pwd"><br>
+<button id="login">Login</button>
 </body>
 
 </html>
