@@ -1,0 +1,22 @@
+# pack-refs with: peeled fully-peeled 
+3be96d64ed083e906ea77044bc448741135af670 refs/remotes/origin/0.4.0
+7aa3bf5e6adbd5aa311bb25bb29d633e9e0e873e refs/remotes/origin/aggregation1
+cc014810d37dc6734d45b924ba8364ccf92b68c8 refs/remotes/origin/config
+9a902c4e07d75638a1c64ab8ce77abfc1c79d08e refs/remotes/origin/config-fs
+f2ffb9b6d93fc97cc4453d0c5df4042f1dd85b8d refs/remotes/origin/drypass
+5f063be6cbdd6f6f1f68e35c9f61c8131d124ec3 refs/remotes/origin/dynamic-dropdown
+e612a9e0fb18b2d7b8ea9d56453553a2e4f47072 refs/remotes/origin/explode
+8be663ba3d5086ffa29f7b6f49dbed3cfc04f0d1 refs/remotes/origin/gh-pages
+be457e0ffa445b7f9ccd48fcd7ba15d9be084c37 refs/remotes/origin/master
+462ff63fdcb1cffe8f1d232e964274940545cefc refs/remotes/origin/meansplit
+93bf07d7e5a9ed89aa5dced135b9728375bb4f29 refs/remotes/origin/menus
+c7b996929e63c3d130ceba4bbc74b4283ced7c95 refs/remotes/origin/ng
+7f9753a162feb9689f4665b7b7ce878904e6c064 refs/remotes/origin/nogrunt
+6b07c63c973467104928a434965e66b468004a42 refs/remotes/origin/sep-config
+f4070892bca46e881c4b2c080ac4c42276224e4c refs/tags/v0.3.0
+4141cac8471a0559f4243893ec65635195cba667 refs/tags/v0.3.1
+9dece0b71b575f0cdd810cbaf3e5005b8dc5a02d refs/tags/v0.3.2
+63f54e19b7849a4062a9f48eb21ab25da1f33c3a refs/tags/v0.3.3
+8ffec161914dec8c7597cdb8a6254e1b7b6cccc4 refs/tags/v0.4.0
+92937f8db765186dcadcd3696fa81bc6db094ea7 refs/tags/v0.4.1
+41d02ebc45bb1f64295c6c343906def8d0c0e266 refs/tags/v0.4.2
