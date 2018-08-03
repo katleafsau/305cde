@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Phone Scam</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--<script src="js/boostrap.min.js"></script>-->
+    <link rel="stylesheet" type="text/css " href="css/signin.css" />
+    <link rel="stylesheet" type="text/css " href="css/bootstrap.css" />
+    <!--<link rel="stylesheet" href="/maps/documentation/javascript/cgc/demos.css">-->
+    <!-- Custom styles for this template -->
+    <link href="css/blog-home.css" rel="stylesheet">
+
+</head>
+
+<script>
+    $(document).ready(function () {
+
+        //Weather API
+        $.ajax({
+				url : "http://api.wunderground.com/api/b20b6bbf1fd069a8/geolookup/conditions/q/HK/HongKong.json",
+				dataType : "jsonp",
+				success : function(parsed_json) {
+					var temp_c = parsed_json['current_observation']['temp_c'];
+					document.getElementById("temperature").innerHTML = temp_c + "&deg;C";
+				}
+				});
+
+        var mylogin = localStorage.getItem("mylogin");
+
+        if (mylogin == "")
+        {
+            document.getElementById('signinout').innerHTML = "<a class='nav-link' href='/signin'><button class='btn btn-primary btn-block'>Sign in</button></a>";
+	      }
+        else
+        {
+            document.getElementById('signinout').innerHTML = "<a class='nav-link' href='/signout'><button class='btn btn-primary btn-block'>Log Out</button></a>";
+        }
+      
+        $(".addbtn").click(function()
+        {
+          if(mylogin != "") {
+            if(this.id=="fav1")
+            {
+              var favtitle=$("#favtitle1").html();
+              var vdolink=$("#favlink1").attr("src");
+            }
+            else if(this.id=="fav2")
+            {
+              var favtitle=$("#favtitle2").html();
+              var vdolink=$("#favlink2").attr("src");
+            }
+            else if(this.id=="fav3")
+            {
+              var favtitle=$("#favtitle3").html();
+              var vdolink=$("#favlink3").attr("src");
+            }
+
+            var datatoser="user="+mylogin+"&fav="+favtitle+"&vdo="+vdolink;
+            //alert(datatoser);
+            $.ajax(
+            {
+                url: "http://port-8899.305cde-katleafsau946512.codeanyapp.com/addfavourite",
+                type: 'POST',
+                data: datatoser,
+                success: function(resultReturn)
+                { 
+                 alert(resultReturn);
+                },error: function (xhr, textStatus, errorThrown) 
+                {
+                  alert("search failed");
+                  console.log(textStatus);
+                  alert(xhr.responseText);
+                }
+            });
+          }
+          else
+          {
+            alert("Please login first");
+            return;
+          }
+        });
+});
+</script>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">Phone Scam</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/favourite">Favourite</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/check">Check</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/case">Case Study</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <div id="temperature" class="temp-link"></div>
+                    </li>
+                    <li class="nav-item" id="signinout">
+                        <a class="nav-link" href="/signin"><button class="btn btn-primary btn-block">Sign in</button></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br><br><br>
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+
+                <h1 class="my-4">
+                    What is Phone Scam?
+                    <br /><small>Beware unknown number</small>
+                </h1>
+
+                <!-- Blog Post -->
+                <div class="card mb-4">
+                    <iframe id="favlink1" class="youtube" src="https://www.youtube.com/embed/MgFKzCujdMc" width="100%" height="505;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div id="favtitle1" class="sr-only">One Ring Call</div>
+                    <div class="card-body">
+                        <h2 class="card-title">One Ring Call - Warning: This old phone scam is back</h2>
+                        <p class="card-text">According to the Federal Trade Commission, 
+                          scammers are using auto-dialers to call cell phone numbers across the country, 
+                          letting the phone ring just one time before disconnecting.
+                          Inc.com reports that there are actually three versions of this scam now:
+                          Scammer calls and hangs up before anyone answers
+                          Scammer waits for the victim to answer and plays a pre-recorded message of someone in an emergency situation and then hangs up
+                          Scammer sends a text message indicating that they are in trouble
+                          Consumers face no danger by receiving the message, but calling or texting back can be quite costly.
+                          Although the area codes may look domestic, they’re international calls to premium phone numbers, 
+                          which are like 900 numbers. Victims have been hit with an international call fee, plus an expensive per-minute charge.<br>
+                          Source: <a href="https://clark.com/scams-rip-offs/one-ring-scam-area-codes/">
+                          https://clark.com/scams-rip-offs/one-ring-scam-area-codes/</a></p>
+                        <button id="fav1" class="addbtn btn">Add favourite ♥</button>
+                        <!--<div id="fb-root"></div>-->
+                        <script>(function(d, s, id) {
+                          var js, fjs = d.getElementsByTagName(s)[0];
+                          if (d.getElementById(id)) return;
+                          js = d.createElement(s); js.id = id;
+                          js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.1';
+                          fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+                        <div class="btn btn-success clearfix" data-href="https://youtu.be/MgFKzCujdMc" data-layout="button" data-size="large" data-mobile-iframe="false">
+                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyoutu.be%2FMgFKzCujdMc&amp;src=sdkpreparse">Share to Facebook</a></div>
+
+                    </div>
+                    <div class="card-footer text-muted">
+                        Posted on July 1, 2018
+                    </div>
+                </div>
+
+                <!-- Blog Post -->
+                <div class="card mb-4">
+                    <iframe id="favlink2" class="youtube" src="https://www.youtube.com/embed/JSFZ0dqH1qI" width="100%" height="505" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div id="favtitle2" class="sr-only">Can you hear me?</div>
+                    <div class="card-body">
+                        <h2 class="card-title">'Can you hear me?' phone scam on the rise</h2>
+                        <p class="card-text">If you receive a call and the caller asks, "Can you hear me?", 
+                          you might end up a victim to fraud if you say "Yes."
+                          It's the latest phone scam targeting millions across the country, including Southwest Florida.
+                          Scammers are using robots to call and secretly record you. 
+                          The answers you give them are then used against you - and your wallet.<br>
+                          Source: <a href="http://www.abc-7.com/story/34395195/can-you-hear-me-phone-scam-on-the-rise" target="_blank">
+                                     http://www.abc-7.com/story/34395195/can-you-hear-me-phone-scam-on-the-rise</a></p>
+                        <button id="fav2" class="addbtn btn">Add favourite ♥</button>
+                        <!--<div id="fb-root"></div>-->
+                        <script>(function(d, s, id) {
+                          var js, fjs = d.getElementsByTagName(s)[0];
+                          if (d.getElementById(id)) return;
+                          js = d.createElement(s); js.id = id;
+                          js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.1';
+                          fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+                        <div class="btn btn-success clearfix" data-href="https://youtu.be/JSFZ0dqH1qI" data-layout="button" data-size="large" data-mobile-iframe="false">
+                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyoutu.be%2FMgFKzCujdMc&amp;src=sdkpreparse">Share to Facebook</a></div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Posted on July 1, 2018
+                    </div>
+                </div>
+
+                <!-- Blog Post -->
+                <div class="card mb-4">
+                    <iframe id="favlink3" class="youtube" src="https://www.youtube.com/embed/-Xvqb37nNW8" width="100%" height="505" scrolling="no" style="border:none;" allowfullscreen></iframe>
+                    <div id="favtitle3" class="sr-only">'Yes' phone scam</div>
+                    <div class="card-body">
+                        <h2 class="card-title">FCC warns consumers about new 'Yes' phone scam</h2>
+                        <p class="card-text">If you receive a call and the caller asks, "Can you hear me?", 
+                          you might end up a victim to fraud if you say "Yes."
+                          It's the latest phone scam targeting millions across the country, including Southwest Florida.
+                          Scammers are using robots to call and secretly record you. 
+                          The answers you give them are then used against you - and your wallet.<br>
+                          Source: <a href="http://www.abc-7.com/story/34395195/can-you-hear-me-phone-scam-on-the-rise" target="_blank">
+                                     http://www.abc-7.com/story/34395195/can-you-hear-me-phone-scam-on-the-rise</a></p>
+                        <button id="fav3" class="addbtn btn">Add favourite ♥</button>
+                        <!--<div id="fb-root"></div>-->
+                        <script>(function(d, s, id) {
+                          var js, fjs = d.getElementsByTagName(s)[0];
+                          if (d.getElementById(id)) return;
+                          js = d.createElement(s); js.id = id;
+                          js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.1';
+                          fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+                        <div class="btn btn-success clearfix" data-href="https://youtu.be/-Xvqb37nNW8" data-layout="button" data-size="large" data-mobile-iframe="false">
+                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyoutu.be%2FMgFKzCujdMc&amp;src=sdkpreparse">Share to Facebook</a></div>
+
+                    </div>
+                    <div class="card-footer text-muted">
+                        Posted on July 15, 2018
+                    </div>
+                </div>
+              
+                <!-- Pagination -->
+                <ul class="pagination justify-content-center mb-4">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#">&larr; Older</a>
+                    </li>
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#">Newer &rarr;</a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <!-- Sidebar Widgets Column -->
+            <div class="col-md-4">
+              
+                <!-- News Search -->
+                <div class="card my-4">
+                    <h5 class="card-header">Related Sources</h5>
+                    <div class="card-body">
+                        <a href="/news">Sources of Phone Scam</a><br>
+                        <small>API provided by <a href="https://newsapi.org/" target="_blank">News API</a></small>
+                    </div>
+                </div>
+              
+                <!-- External link -->
+                <div class="card my-4">
+                    <h5 class="card-header">Useful links</h5>
+                    <div class="card-body">
+                        <a href="https://www.police.gov.hk/ppp_en/04_crime_matters/adcc/index.html" target="_blank">
+                                          Anti-Deception Coordination Centre (ADCC)</a>
+                    </div>
+                </div>
+
+                <!-- Side Widget -->
+                <div class="card my-4">
+                    <h5 class="card-header">Feel in trap?</h5>
+                    <div class="card-body">
+                        <div id="body">
+                            <div id="feedControl">
+                              <a href="https://www.erc.police.gov.hk/cmiserc/CCC/PolicePublicPage?language=en" target="_blank">
+                              Report to Police here!</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+
+    </div>
+    <!-- /.container -->
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Phone Scam 2018</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    
+
+</body>
+
+</html>

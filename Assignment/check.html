@@ -1,0 +1,1089 @@
+<html>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Phone Scam - Video</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--<script src="js/boostrap.min.js"></script>-->
+    <link rel="stylesheet" type="text/css " href="css/signin.css" />
+    <link rel="stylesheet" type="text/css " href="css/bootstrap.css" />
+    <!--<link rel="stylesheet" href="/maps/documentation/javascript/cgc/demos.css">-->
+    <!-- Custom styles for this template -->
+    <link href="css/blog-home.css" rel="stylesheet">
+
+<script>
+    $(document).ready(function () {
+        //Weather API
+        $.ajax({
+				url : "http://api.wunderground.com/api/b20b6bbf1fd069a8/geolookup/conditions/q/HK/HongKong.json",
+				dataType : "jsonp",
+				success : function(parsed_json) {
+					var temp_c = parsed_json['current_observation']['temp_c'];
+					document.getElementById("temperature").innerHTML = temp_c + "&deg;C";
+				}
+				});
+      
+        var mylogin = localStorage.getItem("mylogin");
+
+        if (mylogin == "")
+        {
+            document.getElementById('signinout').innerHTML = "<a class='nav-link' href='/signin'><button class='btn btn-primary btn-block'>Sign in</button></a>";
+	      }
+        else
+        {
+            document.getElementById('signinout').innerHTML = "<a class='nav-link' href='/signout'><button class='btn btn-primary btn-block'>Log Out</button></a>";
+        }
+    });
+  
+function tableFilter() {
+
+		var input, filter, table, tr, td, i;
+		input = document.getElementById("myInput");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("myTable");
+		tr = table.getElementsByTagName("tr");
+		for (i = 0; i < tr.length; i++) {
+		
+			td = tr[i].getElementsByTagName("td")[0];
+			if (td) {
+				if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+				}
+			}       
+		}
+	}
+</script>
+
+<body>
+<div class="container">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">Phone Scam</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/favourite">Favourite</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/check">Check</a>
+                        <span class="sr-only">(current)</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/case">Case Study</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <div id="temperature" class="temp-link"></div>
+                    </li>
+                    <li class="nav-item" id="signinout">
+                        <a class="nav-link" href="/signin"><button class="btn btn-primary btn-block">Sign in</button></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br><br>
+  <div class="container text-center">
+    
+
+    <h1 class="my-4"><br>Search for country code <br>if you got a suspected scam call!</h1>
+    <table id="myTable" class="text-center">
+     <tr class="header">
+							
+     <br><input type="text" id="myInput" onkeyup="tableFilter()" placeholder="Search for country code.." title="Type in a name">
+		
+						
+		<br><br>
+		</tr>
+    <tr>
+        <td class = "countrycode">Country Code</td>
+        <td class = "countryname">Country Name</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">93</td>
+        <td class = "countryname">Afghanistan</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">355</td>
+        <td class = "countryname">Albania</td>
+    </tr>
+      <tr>
+        <td class = "countrycode">213</td>
+        <td class = "countryname">Algeria</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-684</td>
+        <td class = "countryname">American Samoa</td>
+    </tr>    
+    <tr>
+        <td class = "countrycode">376</td>
+        <td class = "countryname">Andorra</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">244</td>
+        <td class = "countryname">Angola</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-264</td>
+        <td class = "countryname">Anguilla</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">672</td>
+        <td class = "countryname">Antarctica</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-268</td>
+        <td class = "countryname">Antigua and Barbuda</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">54</td>
+        <td class = "countryname">Argentina</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">374</td>
+        <td class = "countryname">Armenia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">297</td>
+        <td class = "countryname">Aruba</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">61</td>
+        <td class = "countryname">Australia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">43</td>
+        <td class = "countryname">Austria</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">994</td>
+        <td class = "countryname">Azerbaijan</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-242</td>
+        <td class = "countryname">Bahamas</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">973</td>
+        <td class = "countryname">Bahrain</td>
+    </tr>
+    <tr>
+        <td class = "countrycode"></td>
+        <td class = "countryname">Bangladesh</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-246</td>
+        <td class = "countryname">Barbados</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">375</td>
+        <td class = "countryname">Belarus</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">32</td>
+        <td class = "countryname">Belgium</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">501</td>
+        <td class = "countryname">Belize</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">229</td>
+        <td class = "countryname">Benin</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-441</td>
+        <td class = "countryname">Bermuda</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">975</td>
+        <td class = "countryname">Bhutan</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">591</td>
+        <td class = "countryname">Bolivia</td>
+    </tr>
+	    <tr>
+        <td class = "countrycode">387</td>
+        <td class = "countryname">Bosnia and Herzegovina</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">267</td>
+        <td class = "countryname">Botswana</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">55</td>
+        <td class = "countryname">Brazil</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">246</td>
+        <td class = "countryname">British Indian Ocean Territory</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-284</td>
+        <td class = "countryname">British Virgin Islands</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">673</td>
+        <td class = "countryname">Brunei</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">359</td>
+        <td class = "countryname">Bulgaria</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">226</td>
+        <td class = "countryname">Burkina Faso</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">257</td>
+        <td class = "countryname">Burundi</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">855</td>
+        <td class = "countryname">Cambodia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">237</td>
+        <td class = "countryname">Cameroon</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1</td>
+        <td class = "countryname">Canada</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">238</td>
+        <td class = "countryname">Cape Verde</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-345</td>
+        <td class = "countryname">Cayman Islands</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">236</td>
+        <td class = "countryname">Central African Republic</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">235</td>
+        <td class = "countryname">Chad</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">56</td>
+        <td class = "countryname">Chile</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">86</td>
+        <td class = "countryname">China</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">61</td>
+        <td class = "countryname">Christmas Island</td>
+    </tr>
+    <tr>
+        <td class = "countrycode"></td>
+        <td class = "countryname">Cocos Islands</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">57</td>
+        <td class = "countryname">Colombia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">269</td>
+        <td class = "countryname">Comoros</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">682</td>
+        <td class = "countryname">Cook Islands</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">506</td>
+        <td class = "countryname">Costa Rica</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">385</td>
+        <td class = "countryname">Croatia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">53</td>
+        <td class = "countryname">Cuba</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">599</td>
+        <td class = "countryname">Curacao</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">357</td>
+        <td class = "countryname">Cyprus</td>
+    </tr>
+  <tr>
+        <td class = "countrycode">420</td>
+        <td class = "countryname">Czech Republic</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">243</td>
+        <td class = "countryname">Democratic Republic of the Congo</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">45</td>
+        <td class = "countryname">Denmark</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">253</td>
+        <td class = "countryname">Djibouti</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-767</td>
+        <td class = "countryname">Dominica</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-809, 1-829, 1-849</td>
+        <td class = "countryname">Dominican Republic</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">670</td>
+        <td class = "countryname">East Timor</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">593</td>
+        <td class = "countryname">Ecuador</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">20</td>
+        <td class = "countryname">Egypt</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">503</td>
+        <td class = "countryname">El Salvador</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">240</td>
+        <td class = "countryname">Equatorial Guinea</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">291</td>
+        <td class = "countryname">Eritrea</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">372</td>
+        <td class = "countryname">Estonia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">251</td>
+        <td class = "countryname">Ethiopia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">500</td>
+        <td class = "countryname">Falkland Islands</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">298</td>
+        <td class = "countryname">Faroe Islands</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">679</td>
+        <td class = "countryname">Fiji</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">358</td>
+        <td class = "countryname">Finland</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">33</td>
+        <td class = "countryname">France</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">689</td>
+        <td class = "countryname">French Polynesia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">241</td>
+        <td class = "countryname">Gabon</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">220</td>
+        <td class = "countryname">Gambia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">995</td>
+        <td class = "countryname">Georgia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">49</td>
+        <td class = "countryname">Germany</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">233</td>
+        <td class = "countryname">Ghana</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">350</td>
+        <td class = "countryname">Gibraltar</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">30</td>
+        <td class = "countryname">Greece</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">299</td>
+        <td class = "countryname">Greenland</td>
+    </tr>
+
+	    <tr>
+        <td class = "countrycode">1-473</td>
+        <td class = "countryname">Grenada</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-671</td>
+        <td class = "countryname">Guam</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">502</td>
+        <td class = "countryname">Guatemala</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">44-1481</td>
+        <td class = "countryname">Guernsey</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">224</td>
+        <td class = "countryname">Guinea</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">245</td>
+        <td class = "countryname">Guinea-Bissau</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">592</td>
+        <td class = "countryname">Guyana</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">509</td>
+        <td class = "countryname">Haiti</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">504</td>
+        <td class = "countryname">Honduras</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">852</td>
+        <td class = "countryname">Hong Kong</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">36</td>
+        <td class = "countryname">Hungary</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">354</td>
+        <td class = "countryname">Iceland</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">91</td>
+        <td class = "countryname">India</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">62</td>
+        <td class = "countryname">Indonesia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">98</td>
+        <td class = "countryname">Iran</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">964</td>
+        <td class = "countryname">Iraq</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">353</td>
+        <td class = "countryname">Ireland</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">44-1624</td>
+        <td class = "countryname">Isle of Man</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">972</td>
+        <td class = "countryname">Israel</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">39</td>
+        <td class = "countryname">Italy</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">225</td>
+        <td class = "countryname">Ivory Coast</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-876</td>
+        <td class = "countryname">Jamaica</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">81</td>
+        <td class = "countryname">Japan</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">44-1534</td>
+        <td class = "countryname">Jersey</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">962</td>
+        <td class = "countryname">Jordan</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">7</td>
+        <td class = "countryname">Kazakhstan</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">254</td>
+        <td class = "countryname">Kenya</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">686</td>
+        <td class = "countryname">Kiribati</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">383</td>
+        <td class = "countryname">Kosovo</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">965</td>
+        <td class = "countryname">Kuwait</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">996</td>
+        <td class = "countryname">Kyrgyzstan</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">856</td>
+        <td class = "countryname">Laos</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">371</td>
+        <td class = "countryname">Latvia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">961</td>
+        <td class = "countryname">Lebanon</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">266</td>
+        <td class = "countryname">Lesotho</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">231</td>
+        <td class = "countryname">Liberia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">218</td>
+        <td class = "countryname">Libya</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">423</td>
+        <td class = "countryname">Liechtenstein</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">370</td>
+        <td class = "countryname">Lithuania</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">352</td>
+        <td class = "countryname">Luxembourg</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">853</td>
+        <td class = "countryname">Macau</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">389</td>
+        <td class = "countryname">Macedonia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">261</td>
+        <td class = "countryname">Madagascar</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">265</td>
+        <td class = "countryname">Malawi</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">60</td>
+        <td class = "countryname">Malaysia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">960</td>
+        <td class = "countryname">Maldives</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">223</td>
+        <td class = "countryname">Mali</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">356</td>
+        <td class = "countryname">Malta</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">692</td>
+        <td class = "countryname">Marshall Islands</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">222</td>
+        <td class = "countryname">Mauritania</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">230</td>
+        <td class = "countryname">Mauritius</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">262</td>
+        <td class = "countryname">Mayotte</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">52</td>
+        <td class = "countryname">Mexico</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">691</td>
+        <td class = "countryname">Micronesia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">373</td>
+        <td class = "countryname">Moldova</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">377</td>
+        <td class = "countryname">Monaco</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">976</td>
+        <td class = "countryname">Mongolia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">382</td>
+        <td class = "countryname">Montenegro</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-664</td>
+        <td class = "countryname">Montserrat</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">212</td>
+        <td class = "countryname">Morocco</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">258</td>
+        <td class = "countryname">Mozambique</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">95</td>
+        <td class = "countryname">Myanmar</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">264</td>
+        <td class = "countryname">Namibia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">674</td>
+        <td class = "countryname">Nauru</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">977</td>
+        <td class = "countryname">Nepal</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">31</td>
+        <td class = "countryname">Netherlands</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">599</td>
+        <td class = "countryname">Netherlands Antilles</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">687</td>
+        <td class = "countryname">New Caledonia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">64</td>
+        <td class = "countryname">New Zealand</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">505</td>
+        <td class = "countryname">Nicaragua</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">227</td>
+        <td class = "countryname">Niger</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">234</td>
+        <td class = "countryname">Nigeria</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">683</td>
+        <td class = "countryname">Niue</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">850</td>
+        <td class = "countryname">North Korea</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-670</td>
+        <td class = "countryname">Northern Mariana Islands</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">47</td>
+        <td class = "countryname">Norway</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">968</td>
+        <td class = "countryname">Oman</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">92</td>
+        <td class = "countryname">Pakistan</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">680</td>
+        <td class = "countryname">Palau</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">970</td>
+        <td class = "countryname">Palestine</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">507</td>
+        <td class = "countryname">Panama</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">675</td>
+        <td class = "countryname">Papua New Guinea</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">595</td>
+        <td class = "countryname">Paraguay</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">51</td>
+        <td class = "countryname">Peru</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">63</td>
+        <td class = "countryname">Philippines</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">64</td>
+        <td class = "countryname">Pitcairn</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">48</td>
+        <td class = "countryname">Poland</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">351</td>
+        <td class = "countryname">Portugal</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-787, 1-939</td>
+        <td class = "countryname">Puerto Rico</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">974</td>
+        <td class = "countryname">Qatar</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">242</td>
+        <td class = "countryname">Republic of the Congo</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">262</td>
+        <td class = "countryname">Reunion</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">40</td>
+        <td class = "countryname">Romania</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">7</td>
+        <td class = "countryname">Russia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">250</td>
+        <td class = "countryname">Rwanda</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">590</td>
+        <td class = "countryname">Saint Barthelemy</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">290</td>
+        <td class = "countryname">Saint Helena</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-869</td>
+        <td class = "countryname">Saint Kitts and Nevis</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-758</td>
+        <td class = "countryname">Saint Lucia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">590</td>
+        <td class = "countryname">Saint Martin</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">508</td>
+        <td class = "countryname">Saint Pierre and Miquelon</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-784</td>
+        <td class = "countryname">Saint Vincent and the Grenadines</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">685</td>
+        <td class = "countryname">Samoa</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">378</td>
+        <td class = "countryname">San Marino</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">239</td>
+        <td class = "countryname">Sao Tome and Principe</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">966</td>
+        <td class = "countryname">Saudi Arabia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">221</td>
+        <td class = "countryname">Senegal</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">381</td>
+        <td class = "countryname">Serbia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">248</td>
+        <td class = "countryname">Seychelles</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">232</td>
+        <td class = "countryname">Sierra Leone</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">65</td>
+        <td class = "countryname">Singapore</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-721</td>
+        <td class = "countryname">Sint Maarten</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">421</td>
+        <td class = "countryname">Slovakia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">386</td>
+        <td class = "countryname">Slovenia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">677</td>
+        <td class = "countryname">Solomon Islands</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">252</td>
+        <td class = "countryname">Somalia</td>
+    </tr>
+  <tr>
+        <td class = "countrycode">27</td>
+        <td class = "countryname">South Africa</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">82</td>
+        <td class = "countryname">South Korea</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">211</td>
+        <td class = "countryname">South Sudan</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">34</td>
+        <td class = "countryname">Spain</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">94</td>
+        <td class = "countryname">Sri Lanka</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">249</td>
+        <td class = "countryname">Sudan</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">597</td>
+        <td class = "countryname">Suriname</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">47</td>
+        <td class = "countryname">Svalbard and Jan Mayen47</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">268</td>
+        <td class = "countryname">Swaziland</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">46</td>
+        <td class = "countryname">Sweden</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">41</td>
+        <td class = "countryname">Switzerland</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">963</td>
+        <td class = "countryname">Syria</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">886</td>
+        <td class = "countryname">Taiwan</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">992</td>
+        <td class = "countryname">Tajikistan</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">255</td>
+        <td class = "countryname">Tanzania</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">66</td>
+        <td class = "countryname">Thailand</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">228</td>
+        <td class = "countryname">Togo</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">690</td>
+        <td class = "countryname">Tokelau</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">676</td>
+        <td class = "countryname">Tonga</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-868</td>
+        <td class = "countryname">Trinidad and Tobago</td>
+    </tr>
+  <tr>
+        <td class = "countrycode">1-216</td>
+        <td class = "countryname">Tunisia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">90</td>
+        <td class = "countryname">Turkey</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">993</td>
+        <td class = "countryname">Turkmenistan</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-649</td>
+        <td class = "countryname">Turks and Caicos Islands</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">688</td>
+        <td class = "countryname">Tuvalu</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1-340</td>
+        <td class = "countryname">U.S. Virgin Islands</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">256</td>
+        <td class = "countryname">Uganda</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">380</td>
+        <td class = "countryname">Ukraine</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">971</td>
+        <td class = "countryname">United Arab Emirates</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">44</td>
+        <td class = "countryname">United Kingdom</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">1</td>
+        <td class = "countryname">United States</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">598</td>
+        <td class = "countryname">Uruguay</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">998</td>
+        <td class = "countryname">Uzbekistan</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">678</td>
+        <td class = "countryname">Vanuatu</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">379</td>
+        <td class = "countryname">Vatican</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">58</td>
+        <td class = "countryname">Venezuela</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">84</td>
+        <td class = "countryname">Vietnam</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">681</td>
+        <td class = "countryname">Wallis and Futuna</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">212</td>
+        <td class = "countryname">Western Sahara</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">967</td>
+        <td class = "countryname">Yemen</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">260</td>
+        <td class = "countryname">Zambia</td>
+    </tr>
+    <tr>
+        <td class = "countrycode">263</td>
+        <td class = "countryname">Zimbabwe</td>
+    </tr>
+	</table>
+	</div>
+</div>
+    <!-- /.container -->
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Phone Scam 2018</p>
+    </div>
+    <!-- /.container -->
+</footer>
+</body>
+
+</html>

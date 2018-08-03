@@ -1,0 +1,106 @@
+<html>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Phone Scam - Contact us</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--<script src="js/boostrap.min.js"></script>-->
+    <link rel="stylesheet" type="text/css " href="css/signin.css" />
+    <link rel="stylesheet" type="text/css " href="css/bootstrap.css" />
+    <!--<link rel="stylesheet" href="/maps/documentation/javascript/cgc/demos.css">-->
+    <!-- Custom styles for this template -->
+    <link href="css/blog-home.css" rel="stylesheet">
+  
+<script>
+    $(document).ready(function () {
+        //Weather API
+        $.ajax({
+				url : "http://api.wunderground.com/api/b20b6bbf1fd069a8/geolookup/conditions/q/HK/HongKong.json",
+				dataType : "jsonp",
+				success : function(parsed_json) {
+					var temp_c = parsed_json['current_observation']['temp_c'];
+					document.getElementById("temperature").innerHTML = temp_c + "&deg;C";
+				}
+				});
+      
+        var mylogin = localStorage.getItem("mylogin");
+
+        if (mylogin == "")
+        {
+            document.getElementById('signinout').innerHTML = "<a class='nav-link' href='/signin'><button class='btn btn-primary btn-block'>Sign in</button></a>";
+	      }
+        else
+        {
+            document.getElementById('signinout').innerHTML = "<a class='nav-link' href='/signout'><button class='btn btn-primary btn-block'>Log Out</button></a>";
+        }
+    });
+</script>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">Phone Scam</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home
+                            
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/favourite">Favourite</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/check">Check</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/case">Case Study</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/contact">Contact</a>
+                        <span class="sr-only">(current)</span>
+                    </li>
+                    <li class="nav-item">
+                        <div id="temperature" class="temp-link"></div>
+                    </li>
+                     <li class="nav-item" id="signinout">
+                        <a class="nav-link" href="/signin"><button class="btn btn-primary btn-block">Sign in</button></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br><br>
+<div class="">
+  
+    <table id="contact" class="container text-center">
+        <tr>
+          <td><h1 class="my-4">Contact us<br><br>
+                
+                <small>
+                   Student Name: Chan Sau Chun, Christy<br>
+                    Student No.: 177372173<br>
+                  <a href="mailto:katleafsau@gmail.com">Email: katleafsau@gmail.com</a>
+                </small>
+            </h1>
+            </td>
+        </tr>s
+    </table>
+</div>
+  <!-- /.container -->
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Phone Scam 2018</p>
+    </div>
+    <!-- /.container -->
+</footer>
+</body>
+
+</html>
